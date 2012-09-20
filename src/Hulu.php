@@ -6,22 +6,19 @@
         protected $client_id;
         
         /* sprintf URL declarations */
-        private $base_url =             'http://m.hulu.com/';
-        private $companies_url =        'http://m.hulu.com/companies?dp_id=hulu&limit=%d&order_by=%s';
-        private $genres_url =           'http://m.hulu.com/channels?dp_id=hulu&order_by=name%20asc&limit=300';
-        private $shows_url =            'http://m.hulu.com/shows?dp_id=hulu&limit=%d&page=%d&order_by=%s&total=%d';
-        private $shows_by_company_url = 'http://m.hulu.com/shows?dp_id=hulu&limit=%d&page=%d&company_id=%d&order_by=%s&total=%d';
-        private $shows_by_genre_url =   'http://m.hulu.com/shows?dp_id=hulu&limit=%d&page=%d&channel=%s&order_by=%s&total=%d';
-        private $videos_url =           'http://m.hulu.com/videos?dp_id=hulu&order_by=%s&limit=%d&page=%d&total=%d';
-        private $videos_by_show_url =   'http://m.hulu.com/videos?dp_id=hulu&order_by=%s&limit=%d&show_id=%s&page=%d&total=%d';
-        private $search_url =           'http://m.hulu.com/search?dp_identifier=hulu&items_per_page=%d&page=%d&query=%s';
-        private $player_url =           'http://hulu.com/embed/';
-        
-        
-        /*
-            http://m.hulu.com/  shows   ?dp_id=hulu  &limit=%d   &page=%d    &company_id=%d  &order_by=%s    &total=%d
+        private $base_url =     'http://m.hulu.com/';
+        private $search_url =   'http://m.hulu.com/search?dp_identifier=%s&query=%s&items_per_page=%d&page=%d';
+        private $embed_code =   '<iframe src="http://www.hulu.com/embed.html?eid=%s" width="%d" height="%d" frameborder="0" scrolling="no" webkitAllowFullScreen mozallowfullscreen allowfullscreen></iframe>';
+
+        /* Specific URL references
+        $companies_url =        'http://m.hulu.com/companies?dp_id=hulu&limit=%d&order_by=%s';
+        $genres_url =           'http://m.hulu.com/channels?dp_id=hulu&order_by=name%20asc&limit=300';
+        $shows_url =            'http://m.hulu.com/shows?dp_id=hulu&limit=%d&page=%d&order_by=%s&total=%d';
+        $shows_by_company_url = 'http://m.hulu.com/shows?dp_id=hulu&limit=%d&page=%d&company_id=%d&order_by=%s&total=%d';
+        $shows_by_genre_url =   'http://m.hulu.com/shows?dp_id=hulu&limit=%d&page=%d&channel=%s&order_by=%s&total=%d';
+        $videos_url =           'http://m.hulu.com/videos?dp_id=hulu&order_by=%s&limit=%d&page=%d&total=%d';
+        $videos_by_show_url =   'http://m.hulu.com/videos?dp_id=hulu&order_by=%s&limit=%d&show_id=%s&page=%d&total=%d';
         */
-        
         
         public function __construct($client_id = '') {
             if(empty($client_id)) {
@@ -85,13 +82,13 @@
             return $response;
         }
         
-        public function getEmbedCode() {
-            //stub :)
+        public function getEmbedCode($eid, $width = 512, $height = 288) {
+            return sprintf($this->embed_code, $eid, $width, $height);
         }
         
         // Requires dp_identifier rather than dp_id
-        public function search() {
-            $url = $this->generateUrl('videos', $params);
+        public function search($query, $items_per_page = 10, $page = 1) {
+            $url = sprintf($this->search_url, $this->client_id, $query, $items_per_page, $page);
             $response = $this->http($url);
             return $response;
         }

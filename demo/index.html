@@ -53,7 +53,7 @@
             <button type="submit">Get It!</button>
         </form>
         <h3>Code:</h3>
-        <pre class="code_snippet" data-method="getCompanies">No request yet...</pre>
+        <pre class="code_snippet" data-method="getCompanies" data-template="#code_template">No request yet...</pre>
         <h3>Response:</h3>
         <pre class="response_container">No data yet...</pre>
     </section>
@@ -88,7 +88,7 @@
             <button type="submit">Get It!</button>
         </form>
         <h3>Code:</h3>
-        <pre class="code_snippet" data-method="getGenres">No request yet...</pre>
+        <pre class="code_snippet" data-method="getGenres" data-template="#code_template">No request yet...</pre>
         <h3>Response:</h3>
         <pre class="response_container">No data yet...</pre>
     </section>
@@ -123,7 +123,7 @@
             <button type="submit">Get It!</button>
         </form>
         <h3>Code:</h3>
-        <pre class="code_snippet" data-method="getShows">No request yet...</pre>
+        <pre class="code_snippet" data-method="getShows" data-template="#code_template">No request yet...</pre>
         <h3>Response:</h3>
         <pre class="response_container">No data yet...</pre>
     </section>
@@ -160,7 +160,7 @@
             <button type="submit">Get It!</button>
         </form>
         <h3>Code:</h3>
-        <pre class="code_snippet" data-method="getShows">No request yet...</pre>
+        <pre class="code_snippet" data-method="getShows" data-template="#code_template">No request yet...</pre>
         <h3>Response:</h3>
         <pre class="response_container">No data yet...</pre>
     </section>
@@ -197,7 +197,7 @@
             <button type="submit">Get It!</button>
         </form>
         <h3>Code:</h3>
-        <pre class="code_snippet" data-method="getShows">No request yet...</pre>
+        <pre class="code_snippet" data-method="getShows" data-template="#code_template">No request yet...</pre>
         <h3>Response:</h3>
         <pre class="response_container">No data yet...</pre>
     </section>
@@ -232,7 +232,7 @@
             <button type="submit">Get It!</button>
         </form>
         <h3>Code:</h3>
-        <pre class="code_snippet" data-method="getVideos">No request yet...</pre>
+        <pre class="code_snippet" data-method="getVideos" data-template="#code_template">No request yet...</pre>
         <h3>Response:</h3>
         <pre class="response_container">No data yet...</pre>
     </section>
@@ -269,7 +269,34 @@
             <button type="submit">Get It!</button>
         </form>
         <h3>Code:</h3>
-        <pre class="code_snippet" data-method="getVideos">No request yet...</pre>
+        <pre class="code_snippet" data-method="getVideos" data-template="#code_template">No request yet...</pre>
+        <h3>Response:</h3>
+        <pre class="response_container">No data yet...</pre>
+    </section>
+    <section>
+        <h2>Search</h2>
+        <h3>Options:</h3>
+        <form action="api.php?method=search" method="GET">
+            <label>Query: </label>
+            <input type="text" name="query" value="Grey's Anatomy">
+            <label>Limit: </label>
+            <select name="limit">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+            </select>
+            <label>Page: </label>
+            <select name="page">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <button type="submit">Get It!</button>
+        </form>
+        <h3>Code:</h3>
+        <pre class="code_snippet" data-method="search" data-template="#search_template">No request yet...</pre>
         <h3>Response:</h3>
         <pre class="response_container">No data yet...</pre>
     </section>
@@ -284,6 +311,10 @@ $options = array(
     {{/params}}
 );
 $companies = $hulu->{{method}}($options);
+    </script>
+    <script id="search_template" type="text/html">
+$hulu = new Hulu('Hulu');
+$results = $hulu->search({{params.0.value}}, {{params.1.value}}, {{params.2.value}});
     </script>
     <script src="main.js"></script>
 </body>

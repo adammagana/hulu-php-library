@@ -11,7 +11,7 @@
 
                 var responseContainer = $(this).siblings('.response_container'),
                     codeContainer = $(this).siblings('.code_snippet'),
-                    codeTemplate = $('#code_template').html(),
+                    codeTemplate = $(codeContainer.data('template')).html(),
                     selectFields = $(this).children('select, input'),
                     requestParams = {},
                     templateData = {

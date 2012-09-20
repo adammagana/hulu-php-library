@@ -24,16 +24,20 @@
             unset($_GET['method']);
 
             // Call the method!
-            $genres = $hulu->getShows($_GET);
-            exit($genres);
+            $shows = $hulu->getShows($_GET);
+            exit($shows);
             break;
         case 'getVideos':
             // Remove method from GET so it can be passed to the library
             unset($_GET['method']);
 
             // Call the method!
-            $genres = $hulu->getVideos($_GET);
-            exit($genres);
+            $videos = $hulu->getVideos($_GET);
+            exit($videos);
+            break;
+        case 'search':
+            $results = $hulu->search($_GET['query'], $_GET['limit'], $_GET['page']);
+            exit($results);
             break;
         default:
             // ...

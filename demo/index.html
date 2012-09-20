@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Hulu PHP Library Demo</title>
+
+    <style>
+        section{
+            border-bottom: 1px solid #cccccc;
+        }
+            .code_snippet{
+
+            }
+            .response_container{
+                overflow: scroll;
+                width: 50%;
+                height: 300px;
+                border:1px solid #cccccc;
+            }
+    </style>
+</head>
+<body>
+    <h1>Hulu PHP Library Demo</h1>
+    <hr>
+    <section>
+        <h2>Retrieving Company List</h2>
+        <h3>Options:</h3>
+        <form action="api.php?method=getCompanies" method="GET">
+            <label>Limit: </label>
+            <select name="limit">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+            </select>
+            <label>Order by: </label>
+            <select name="order_by">
+                <option value="name%20asc">Name - Ascending</option>
+                <option value="name%20desc">Name - Descending</option>
+            </select>
+            <label>Page: </label>
+            <select name="page">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <label>Total only: </label>
+            <select name="total">
+                <option value="0">False</option>
+                <option value="1">True</option>
+            </select>
+            <button type="submit">Get It!</button>
+        </form>
+        <h3>Code:</h3>
+        <pre class="code_snippet" data-method="getCompanies">No request yet...</pre>
+        <h3>Response:</h3>
+        <pre class="response_container">No data yet...</pre>
+    </section>
+    <section>
+        <h2>Retrieving Genre List</h2>
+        <h3>Options:</h3>
+        <form action="api.php?method=getGenres" method="GET">
+            <label>Limit: </label>
+            <select name="limit">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+            </select>
+            <label>Order by: </label>
+            <select name="order_by">
+                <option value="name%20asc">Name - Ascending</option>
+                <option value="name%20desc">Name - Descending</option>
+            </select>
+            <label>Page: </label>
+            <select name="page">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <label>Total only: </label>
+            <select name="total">
+                <option value="0">False</option>
+                <option value="1">True</option>
+            </select>
+            <button type="submit">Get It!</button>
+        </form>
+        <h3>Code:</h3>
+        <pre class="code_snippet" data-method="getGenres">No request yet...</pre>
+        <h3>Response:</h3>
+        <pre class="response_container">No data yet...</pre>
+    </section>
+    <section>
+        <h2>Retrieving Show List</h2>
+        <h3>Options:</h3>
+        <form action="api.php?method=getShows" method="GET">
+            <label>Limit: </label>
+            <select name="limit">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+            </select>
+            <label>Order by: </label>
+            <select name="order_by">
+                <option value="name%20asc">Name - Ascending</option>
+                <option value="name%20desc">Name - Descending</option>
+            </select>
+            <label>Page: </label>
+            <select name="page">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <label>Total only: </label>
+            <select name="total">
+                <option value="0">False</option>
+                <option value="1">True</option>
+            </select>
+            <button type="submit">Get It!</button>
+        </form>
+        <h3>Code:</h3>
+        <pre class="code_snippet" data-method="getShows">No request yet...</pre>
+        <h3>Response:</h3>
+        <pre class="response_container">No data yet...</pre>
+    </section>
+    <section>
+        <h2>Retrieving Show List By Company</h2>
+        <h3>Options:</h3>
+        <form action="api.php?method=getShows" method="GET">
+            <label>Limit: </label>
+            <select name="limit">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+            </select>
+            <label>Order by: </label>
+            <select name="order_by">
+                <option value="name%20asc">Name - Ascending</option>
+                <option value="name%20desc">Name - Descending</option>
+            </select>
+            <label>Page: </label>
+            <select name="page">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <label>Company ID: </label>
+            <input type="text" name="company_id" value="123">
+            <label>Total only: </label>
+            <select name="total">
+                <option value="0">False</option>
+                <option value="1">True</option>
+            </select>
+            <button type="submit">Get It!</button>
+        </form>
+        <h3>Code:</h3>
+        <pre class="code_snippet" data-method="getShows">No request yet...</pre>
+        <h3>Response:</h3>
+        <pre class="response_container">No data yet...</pre>
+    </section>
+    <section>
+        <h2>Retrieving Show List By Genre</h2>
+        <h3>Options:</h3>
+        <form action="api.php?method=getShows" method="GET">
+            <label>Limit: </label>
+            <select name="limit">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+            </select>
+            <label>Order by: </label>
+            <select name="order_by">
+                <option value="name%20asc">Name - Ascending</option>
+                <option value="name%20desc">Name - Descending</option>
+            </select>
+            <label>Page: </label>
+            <select name="page">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <label>Genre: </label>
+            <input type="text" name="channel" value="80s-action">
+            <label>Total only: </label>
+            <select name="total">
+                <option value="0">False</option>
+                <option value="1">True</option>
+            </select>
+            <button type="submit">Get It!</button>
+        </form>
+        <h3>Code:</h3>
+        <pre class="code_snippet" data-method="getShows">No request yet...</pre>
+        <h3>Response:</h3>
+        <pre class="response_container">No data yet...</pre>
+    </section>
+    <section>
+        <h2>Retrieving Video List</h2>
+        <h3>Options:</h3>
+        <form action="api.php?method=getVideos" method="GET">
+            <label>Limit: </label>
+            <select name="limit">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+            </select>
+            <label>Order by: </label>
+            <select name="order_by">
+                <option value="name%20asc">Name - Ascending</option>
+                <option value="name%20desc">Name - Descending</option>
+            </select>
+            <label>Page: </label>
+            <select name="page">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <label>Total only: </label>
+            <select name="total">
+                <option value="0">False</option>
+                <option value="1">True</option>
+            </select>
+            <button type="submit">Get It!</button>
+        </form>
+        <h3>Code:</h3>
+        <pre class="code_snippet" data-method="getVideos">No request yet...</pre>
+        <h3>Response:</h3>
+        <pre class="response_container">No data yet...</pre>
+    </section>
+    <section>
+        <h2>Retrieving Video List By Show</h2>
+        <h3>Options:</h3>
+        <form action="api.php?method=getVideos" method="GET">
+            <label>Limit: </label>
+            <select name="limit">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+            </select>
+            <label>Order by: </label>
+            <select name="order_by">
+                <option value="name%20asc">Name - Ascending</option>
+                <option value="name%20desc">Name - Descending</option>
+            </select>
+            <label>Page: </label>
+            <select name="page">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <label>Show ID: </label>
+            <input type="text" name="show_id" value="2418">
+            <label>Total only: </label>
+            <select name="total">
+                <option value="0">False</option>
+                <option value="1">True</option>
+            </select>
+            <button type="submit">Get It!</button>
+        </form>
+        <h3>Code:</h3>
+        <pre class="code_snippet" data-method="getVideos">No request yet...</pre>
+        <h3>Response:</h3>
+        <pre class="response_container">No data yet...</pre>
+    </section>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script src="http://raw.github.com/janl/mustache.js/master/mustache.js"></script>
+    <script id="code_template" type="text/html">
+$hulu = new Hulu('Hulu');
+$options = array(
+    {{#params}}
+    "{{key}}" => "{{value}}",
+    {{/params}}
+);
+$companies = $hulu->{{method}}($options);
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>

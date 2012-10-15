@@ -1,6 +1,6 @@
 <?php
     require_once('../src/Hulu.php');
-    $hulu = new Hulu('Hulu');
+    $hulu = new Hulu();
 
     switch($_GET['method']) {
         case 'getCompanies':

@@ -2,7 +2,8 @@
     class HuluException extends Exception {}
     
     class Hulu {
-        /* Client ID used to identify the application with HULU */
+        /* The 'Hulu' string passed to the constructor is what Hulu calls the `dp_id`.
+        It is what most would call a client id. It is required by all Hulu endpoints. */
         protected $client_id;
         
         /* sprintf URL declarations */
@@ -20,9 +21,9 @@
         $videos_by_show_url =   'http://m.hulu.com/videos?dp_id=hulu&order_by=%s&limit=%d&show_id=%s&page=%d&total=%d';
         */
         
-        public function __construct($client_id = '') {
-            if(empty($client_id)) {
-                throw new HuluException("Missing param: client_id");
+        public function __construct($client_id='Hulu') {
+            if(empty($dp_id)) {
+                throw new HuluException("Missing param: dp_id");
             }
             $this->client_id = $client_id;
         }
@@ -44,11 +45,11 @@
             if($httpCode == 404) {
                 throw new HuluException('Failure to retrieve Hulu content.');
             }else {
-                return $response;
+                return new SimpleXMLElement($response);
             }
         }
         
-        protected function generateUrl($type = '', $params = array()) {
+        protected function generateUrl($type='', $params=array()) {
             $url = $this->base_url.$type.'?dp_id='.$this->client_id;
             if(!empty($params)) {
                 foreach($params as $key => $value) {
@@ -58,28 +59,24 @@
             return $url;
         }
         
-        public function getCompanies($params = array()) {
+        public function getCompanies($params=array()) {
             $url = $this->generateUrl('companies', $params);
-            $response = $this->http($url);
-            return $response;
+            return $this->http($url);
         }
         
-        public function getGenres($params = array()) {
+        public function getGenres($params=array()) {
             $url = $this->generateUrl('channels', $params);
-            $response = $this->http($url);
-            return $response;
+            return $this->http($url);
         }
         
-        public function getShows($params = array()) {
+        public function getShows($params=array()) {
             $url = $this->generateUrl('shows', $params);
-            $response = $this->http($url);
-            return $response;
+            return $this->http($url);
         }
         
-        public function getVideos($params = array()) {
+        public function getVideos($params=array()) {
             $url = $this->generateUrl('videos', $params);
-            $response = $this->http($url);
-            return $response;
+            return $this->http($url);
         }
         
         public function getEmbedCode($eid, $width = 512, $height = 288) {
@@ -87,10 +84,9 @@
         }
         
         // Requires dp_identifier rather than dp_id
-        public function search($query, $items_per_page = 10, $page = 1) {
+        public function search($query, $items_per_page=10, $page=1) {
             $url = sprintf($this->search_url, $this->client_id, $query, $items_per_page, $page);
-            $response = $this->http($url);
-            return $response;
+            return $this->http($url);
         }
     }
 ?>

@@ -3,8 +3,8 @@
 
 ##Description
 **Author**: Adam Magaña &lt;holla@adammagana.com&gt;  
-**Last Edit**: Oct 1st, 2012  
-**Version**: 0.0.1
+**Last Edit**: Oct 16th, 2012  
+**Version**: 0.0.2
 
 This PHP class provides simple methods for retrieving Hulu content. Hulu does not have an official API. However, this class exposes some of Hulu's hidden API-esque endpoints. Enjoy it while it lasts!
 

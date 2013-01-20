@@ -22,8 +22,8 @@
         */
         
         public function __construct($client_id='Hulu') {
-            if(empty($dp_id)) {
-                throw new HuluException("Missing param: dp_id");
+            if(empty($client_id)) {
+                throw new HuluException("Missing param: client_id");
             }
             $this->client_id = $client_id;
         }

@@ -2,8 +2,8 @@
 *A PHP Class*
 
 ##Description
-**Author**: Adam Magaña &lt;holla@adammagana.com&gt;  
-**Last Edit**: Jan 20th, 2013 
+**Author**: Adam Magaña &lt;holla@adammagana.com&gt;
+**Last Edit**: Jan 20th, 2013
 **Version**: 0.0.2
 
 This PHP class provides simple methods for retrieving Hulu content. Hulu does not have an official API. However, this class exposes some of Hulu's hidden API-esque endpoints. Enjoy it while it lasts!
@@ -75,7 +75,7 @@ The first parameter is the query string, the second is the result limit and the 
 
 (The MIT License)
 
-Copyright (c) 2012 Adam Magaña &lt;holla@adammagana.com&gt;
+Copyright (c) 2013 Adam Magaña &lt;holla@adammagana.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
